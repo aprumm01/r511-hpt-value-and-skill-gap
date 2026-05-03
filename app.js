@@ -115,32 +115,24 @@ function fillHero() {
 // =====================================================================
 let chartEdu;
 function buildEduSection() {
-  // Default chart: cluster distribution by participant (stacked bar)
   const ctx = document.getElementById('chart-edu').getContext('2d');
-  const datasets = CLUSTER_ORDER.map(c => ({
-    label: CLUSTER_LABELS[c],
-    data: PARTICIPANTS.map(p => DATA.aggregates.cluster_counts[p][c] || 0),
-    backgroundColor: CLUSTER_COLORS[c],
-    borderWidth: 0,
-  }));
   chartEdu = new Chart(ctx, {
     type: 'bar',
-    data: { labels: PARTICIPANTS, datasets },
+    data: { labels: PARTICIPANTS, datasets: [] },
     options: {
       responsive: true, maintainAspectRatio: false,
       indexAxis: 'y',
       scales: {
-        x: { stacked: true, title: { display: true, text: 'Meaning units' } },
+        x: { stacked: true, title: { display: true, text: '% of meaning units' }, min: 0, max: 100 },
         y: { stacked: true },
       },
       plugins: {
-        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.raw}` } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}%` } },
         legend: { position: 'bottom' }
       }
     }
   });
-
-  // Quote cards
+  updateEduChart('edu-1');
   const eduQuotes = DATA.quotes.filter(q => q.cluster === 'edu_gap').slice(0, 4);
   renderQuoteCards('quotes-edu', eduQuotes);
 }
@@ -148,62 +140,75 @@ function buildEduSection() {
 function updateEduChart(step) {
   if (!chartEdu) return;
   const titleEl = document.getElementById('edu-vis-title');
-  const capEl = document.getElementById('edu-vis-caption');
+  const capEl   = document.getElementById('edu-vis-caption');
 
-  if (step === 'edu-2' || step === 'edu-1') {
-    titleEl.textContent = 'Cluster distribution by participant';
-    capEl.textContent = 'Each row is one participant; segments show meaning units per cluster.';
+  if (step === 'edu-1' || step === 'edu-2') {
+    titleEl.textContent = 'Cluster share by participant';
+    capEl.textContent   = 'What share of each participant\'s meaning units fell in each cluster. Shown as percentages so participants with different MU totals are comparable.';
     chartEdu.data.datasets = CLUSTER_ORDER.map(c => ({
       label: CLUSTER_LABELS[c],
-      data: PARTICIPANTS.map(p => DATA.aggregates.cluster_counts[p][c] || 0),
+      data: PARTICIPANTS.map(p => {
+        const total = DATA.mus.filter(m => m.p === p).length;
+        return total ? +((DATA.aggregates.cluster_counts[p][c] || 0) / total * 100).toFixed(1) : 0;
+      }),
       backgroundColor: CLUSTER_COLORS[c], borderWidth: 0,
     }));
     chartEdu.options.indexAxis = 'y';
     chartEdu.options.scales = {
-      x: { stacked: true, title: { display: true, text: 'Meaning units' } },
+      x: { stacked: true, title: { display: true, text: '% of meaning units' }, min: 0, max: 100 },
       y: { stacked: true }
     };
   }
   else if (step === 'edu-3') {
-    titleEl.textContent = 'Pershing four elements within edu-gap MUs';
-    capEl.textContent = 'Among MUs in the education-gap cluster, where the cause sits in Pershing\'s (2006) taxonomy.';
-    // For each participant, count Pershing elements among edu_gap MUs
+    titleEl.textContent = 'Pershing elements within edu-gap MUs';
+    capEl.textContent   = 'Of each participant\'s education-gap MUs, the share landing in each Pershing (2006) system element.';
     chartEdu.data.datasets = PERSHING_CELLS.map((pe, i) => ({
       label: PERSHING_LABELS[pe],
-      data: PARTICIPANTS.map(p => DATA.mus.filter(m => m.p === p && m.cluster === 'edu_gap' && m.pershing === pe).length),
+      data: PARTICIPANTS.map(p => {
+        const eduMus = DATA.mus.filter(m => m.p === p && m.cluster === 'edu_gap');
+        const total  = eduMus.length;
+        return total ? +((eduMus.filter(m => m.pershing === pe).length / total) * 100).toFixed(1) : 0;
+      }),
       backgroundColor: ['#8b2a1a','#2a5e8a','#4a8a4a','#a07020'][i], borderWidth: 0,
     }));
     chartEdu.options.indexAxis = 'y';
     chartEdu.options.scales = {
-      x: { stacked: true, title: { display: true, text: 'Meaning units in cluster' } },
+      x: { stacked: true, title: { display: true, text: '% of edu-gap MUs' }, min: 0, max: 100 },
       y: { stacked: true }
     };
   }
   else if (step === 'edu-4') {
     titleEl.textContent = 'Sentiment within edu-gap MUs';
-    capEl.textContent = 'Sentiment of meaning units in the education-gap cluster, by participant.';
+    capEl.textContent   = 'Of each participant\'s education-gap MUs, the share by sentiment.';
     chartEdu.data.datasets = SENTIMENT_ORDER.map(s => ({
       label: s,
-      data: PARTICIPANTS.map(p => DATA.mus.filter(m => m.p === p && m.cluster === 'edu_gap' && m.sent === s).length),
+      data: PARTICIPANTS.map(p => {
+        const eduMus = DATA.mus.filter(m => m.p === p && m.cluster === 'edu_gap');
+        const total  = eduMus.length;
+        return total ? +((eduMus.filter(m => m.sent === s).length / total) * 100).toFixed(1) : 0;
+      }),
       backgroundColor: COLORS[s.toLowerCase()] || COLORS.neutral, borderWidth: 0,
     }));
     chartEdu.options.indexAxis = 'y';
     chartEdu.options.scales = {
-      x: { stacked: true, title: { display: true, text: 'Meaning units in cluster' } },
+      x: { stacked: true, title: { display: true, text: '% of edu-gap MUs' }, min: 0, max: 100 },
       y: { stacked: true }
     };
   }
   else if (step === 'edu-5') {
-    titleEl.textContent = 'Quote density by cluster';
-    capEl.textContent = 'Where each participant\'s most actionable, emotionally loaded quotes sit.';
+    titleEl.textContent = 'Selected quote share by cluster';
+    capEl.textContent   = 'Of each participant\'s selected quotes, the share by cluster.';
     chartEdu.data.datasets = CLUSTER_ORDER.map(c => ({
       label: CLUSTER_LABELS[c],
-      data: PARTICIPANTS.map(p => DATA.quotes.filter(q => q.p === p && q.cluster === c).length),
+      data: PARTICIPANTS.map(p => {
+        const total = DATA.quotes.filter(q => q.p === p).length;
+        return total ? +((DATA.quotes.filter(q => q.p === p && q.cluster === c).length / total) * 100).toFixed(1) : 0;
+      }),
       backgroundColor: CLUSTER_COLORS[c], borderWidth: 0,
     }));
     chartEdu.options.indexAxis = 'y';
     chartEdu.options.scales = {
-      x: { stacked: true, title: { display: true, text: 'Selected quotes' } },
+      x: { stacked: true, title: { display: true, text: '% of selected quotes' }, min: 0, max: 100 },
       y: { stacked: true }
     };
   }
@@ -216,32 +221,19 @@ function updateEduChart(step) {
 let chartAi;
 function buildAiSection() {
   const ctx = document.getElementById('chart-ai').getContext('2d');
-  // Default: BEM cell counts on AI-related MUs (cluster ai_tools or ai_threat)
-  const aiMusByPbem = (p) => {
-    const cnt = Object.fromEntries(BEM_CELLS.map(c => [c, 0]));
-    DATA.mus.filter(m => m.p === p && (m.cluster === 'ai_tools' || m.cluster === 'ai_threat')).forEach(m => {
-      (m.bem || []).forEach(c => { if (cnt[c] !== undefined) cnt[c]++; });
-    });
-    return cnt;
-  };
-  const datasets = PARTICIPANTS.map(p => ({
-    label: p,
-    data: BEM_CELLS.map(c => aiMusByPbem(p)[c]),
-    backgroundColor: COLORS[p],
-    borderWidth: 0,
-  }));
   chartAi = new Chart(ctx, {
     type: 'bar',
-    data: { labels: BEM_CELLS.map(c => BEM_LABELS[c]), datasets },
+    data: { labels: BEM_CELLS.map(c => BEM_LABELS[c]), datasets: [] },
     options: {
       responsive: true, maintainAspectRatio: false,
-      scales: {
-        y: { title: { display: true, text: 'AI-related meaning units' } }
-      },
-      plugins: { legend: { position: 'bottom' } }
+      scales: { y: { title: { display: true, text: '% of total MUs' }, min: 0 } },
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}%` } }
+      }
     }
   });
-
+  updateAiChart('ai-1');
   const aiQuotes = DATA.quotes
     .filter(q => q.cluster === 'ai_tools' || q.cluster === 'ai_threat')
     .slice(0, 6);
@@ -251,72 +243,74 @@ function buildAiSection() {
 function updateAiChart(step) {
   if (!chartAi) return;
   const titleEl = document.getElementById('ai-vis-title');
-  const capEl = document.getElementById('ai-vis-caption');
+  const capEl   = document.getElementById('ai-vis-caption');
 
   if (step === 'ai-1' || step === 'ai-2') {
     titleEl.textContent = 'AI mentions on Gilbert\'s BEM, by participant';
-    capEl.textContent = 'Same six cells, very different shapes. Practitioners (blues) and students (ochres).';
+    capEl.textContent   = 'Share of each participant\'s total MUs touching each BEM cell in an AI context. Practitioners (blues) and students (ochres).';
     const aiMusByPbem = (p) => {
+      const total = DATA.mus.filter(m => m.p === p).length;
       const cnt = Object.fromEntries(BEM_CELLS.map(c => [c, 0]));
       DATA.mus.filter(m => m.p === p && (m.cluster === 'ai_tools' || m.cluster === 'ai_threat'))
         .forEach(m => (m.bem || []).forEach(c => { if (cnt[c] !== undefined) cnt[c]++; }));
-      return cnt;
+      return Object.fromEntries(Object.entries(cnt).map(([k, v]) => [k, total ? +((v/total)*100).toFixed(1) : 0]));
     };
     chartAi.data.labels = BEM_CELLS.map(c => BEM_LABELS[c]);
     chartAi.data.datasets = PARTICIPANTS.map(p => ({
       label: p, data: BEM_CELLS.map(c => aiMusByPbem(p)[c]),
       backgroundColor: COLORS[p], borderWidth: 0,
     }));
-    chartAi.options.scales = { y: { title: { display: true, text: 'AI-related MUs' } } };
+    chartAi.options.scales = { y: { title: { display: true, text: '% of total MUs' }, min: 0 } };
   }
   else if (step === 'ai-3') {
-    titleEl.textContent = 'AI volume vs AI valence';
-    capEl.textContent = 'Total AI-cluster MUs (bars) compared to negative/concerned/frustrated share (line).';
-    const counts = PARTICIPANTS.map(p =>
-      DATA.mus.filter(m => m.p === p && (m.cluster === 'ai_tools' || m.cluster === 'ai_threat')).length);
+    titleEl.textContent = 'AI topic share vs negative sentiment';
+    capEl.textContent   = 'Bars: share of each participant\'s MUs on AI topics. Line: share of those AI MUs with negative-leaning sentiment.';
+    const aiPct = PARTICIPANTS.map(p => {
+      const total   = DATA.mus.filter(m => m.p === p).length;
+      const aiCount = DATA.mus.filter(m => m.p === p && (m.cluster === 'ai_tools' || m.cluster === 'ai_threat')).length;
+      return total ? +((aiCount/total)*100).toFixed(1) : 0;
+    });
     const negShare = PARTICIPANTS.map(p => {
       const mus = DATA.mus.filter(m => m.p === p && (m.cluster === 'ai_tools' || m.cluster === 'ai_threat'));
       if (!mus.length) return 0;
-      const neg = mus.filter(m => ['Negative','Concerned','Frustrated'].includes(m.sent)).length;
-      return Math.round((neg / mus.length) * 100);
+      return +((mus.filter(m => ['Negative','Concerned','Frustrated'].includes(m.sent)).length / mus.length) * 100).toFixed(1);
     });
     chartAi.data.labels = PARTICIPANTS;
     chartAi.data.datasets = [
-      { type: 'bar', label: 'AI-cluster MUs', data: counts, backgroundColor: PARTICIPANTS.map(p => COLORS[p]), borderWidth: 0, yAxisID: 'y' },
-      { type: 'line', label: '% negative-leaning', data: negShare, borderColor: COLORS.negative, backgroundColor: 'rgba(176,64,48,0.15)', tension: 0.2, yAxisID: 'y1' }
+      { type: 'bar',  label: '% of MUs on AI topics',            data: aiPct,    backgroundColor: PARTICIPANTS.map(p => COLORS[p]), borderWidth: 0, yAxisID: 'y' },
+      { type: 'line', label: '% negative-leaning within AI MUs', data: negShare, borderColor: COLORS.negative, backgroundColor: 'rgba(176,64,48,0.15)', tension: 0.2, yAxisID: 'y1', pointRadius: 5, pointHoverRadius: 7 }
     ];
     chartAi.options.scales = {
-      y:  { title: { display: true, text: 'MU count' }, position: 'left' },
+      y:  { title: { display: true, text: '% of MUs on AI topics' },   position: 'left',  min: 0, max: 100 },
       y1: { title: { display: true, text: '% negative-leaning' }, position: 'right', grid: { drawOnChartArea: false }, min: 0, max: 100 }
     };
   }
   else if (step === 'ai-4') {
-    titleEl.textContent = 'Cluster sentiment: AI tools vs AI threat';
-    capEl.textContent = 'Within each participant, the same topic landscape carries different affective weight.';
+    titleEl.textContent = 'AI cluster sentiment by participant';
+    capEl.textContent   = 'Share of each participant\'s total MUs, broken out by AI cluster and sentiment direction.';
+    const pct = (p, filter) => { const t = DATA.mus.filter(m => m.p === p).length; return t ? +((DATA.mus.filter(filter.bind(null,p)).length/t)*100).toFixed(1) : 0; };
     chartAi.data.labels = PARTICIPANTS;
-    const aiToolsNeg = PARTICIPANTS.map(p => DATA.mus.filter(m => m.p === p && m.cluster === 'ai_tools' && ['Negative','Concerned','Frustrated'].includes(m.sent)).length);
-    const aiToolsPos = PARTICIPANTS.map(p => DATA.mus.filter(m => m.p === p && m.cluster === 'ai_tools' && m.sent === 'Positive').length);
-    const aiThreatNeg = PARTICIPANTS.map(p => DATA.mus.filter(m => m.p === p && m.cluster === 'ai_threat' && ['Negative','Concerned','Frustrated'].includes(m.sent)).length);
-    const aiThreatPos = PARTICIPANTS.map(p => DATA.mus.filter(m => m.p === p && m.cluster === 'ai_threat' && m.sent === 'Positive').length);
     chartAi.data.datasets = [
-      { label: 'AI tools — positive', data: aiToolsPos, backgroundColor: '#4a8a4a', stack: 'tools' },
-      { label: 'AI tools — negative-leaning', data: aiToolsNeg, backgroundColor: '#a0c5a0', stack: 'tools' },
-      { label: 'AI threat — positive', data: aiThreatPos, backgroundColor: '#a07020', stack: 'threat' },
-      { label: 'AI threat — negative-leaning', data: aiThreatNeg, backgroundColor: '#b04030', stack: 'threat' },
+      { label: 'AI tools, positive',         data: PARTICIPANTS.map(p => pct(p, (p,m) => m.p===p && m.cluster==='ai_tools'  && m.sent==='Positive')),                              backgroundColor: '#4a8a4a', stack: 'tools'  },
+      { label: 'AI tools, negative-leaning', data: PARTICIPANTS.map(p => pct(p, (p,m) => m.p===p && m.cluster==='ai_tools'  && ['Negative','Concerned','Frustrated'].includes(m.sent))), backgroundColor: '#a0c5a0', stack: 'tools'  },
+      { label: 'AI threat, positive',        data: PARTICIPANTS.map(p => pct(p, (p,m) => m.p===p && m.cluster==='ai_threat' && m.sent==='Positive')),                              backgroundColor: '#a07020', stack: 'threat' },
+      { label: 'AI threat, negative-leaning',data: PARTICIPANTS.map(p => pct(p, (p,m) => m.p===p && m.cluster==='ai_threat' && ['Negative','Concerned','Frustrated'].includes(m.sent))), backgroundColor: '#b04030', stack: 'threat' },
     ];
-    chartAi.options.scales = { y: { title: { display: true, text: 'Meaning units' }, stacked: true }, x: { stacked: true } };
+    chartAi.options.scales = {
+      y: { title: { display: true, text: '% of total MUs' }, stacked: true, min: 0 },
+      x: { stacked: true }
+    };
   }
   else if (step === 'ai-5') {
-    titleEl.textContent = 'Selected AI-cluster quotes by participant';
-    capEl.textContent = 'How many of each participant\'s most-loaded quotes are about AI tools versus AI threat.';
+    titleEl.textContent = 'AI-cluster quotes as share of selected quotes';
+    capEl.textContent   = 'Of each participant\'s selected quotes, the share covering AI tools versus AI threat.';
     chartAi.data.labels = PARTICIPANTS;
-    const tools = PARTICIPANTS.map(p => DATA.quotes.filter(q => q.p === p && q.cluster === 'ai_tools').length);
-    const threat = PARTICIPANTS.map(p => DATA.quotes.filter(q => q.p === p && q.cluster === 'ai_threat').length);
+    const qPct = (p, cluster) => { const t = DATA.quotes.filter(q => q.p===p).length; return t ? +((DATA.quotes.filter(q => q.p===p && q.cluster===cluster).length/t)*100).toFixed(1) : 0; };
     chartAi.data.datasets = [
-      { label: 'AI tools', data: tools, backgroundColor: '#4a8a4a' },
-      { label: 'AI threat', data: threat, backgroundColor: '#b04030' },
+      { label: 'AI tools',  data: PARTICIPANTS.map(p => qPct(p,'ai_tools')),  backgroundColor: '#4a8a4a' },
+      { label: 'AI threat', data: PARTICIPANTS.map(p => qPct(p,'ai_threat')), backgroundColor: '#b04030' },
     ];
-    chartAi.options.scales = { y: { title: { display: true, text: 'Selected quotes' } } };
+    chartAi.options.scales = { y: { title: { display: true, text: '% of selected quotes' }, min: 0 } };
   }
   chartAi.update();
 }
