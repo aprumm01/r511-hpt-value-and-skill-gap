@@ -2,32 +2,32 @@
  "participants": [
   {
    "name": "P1",
-   "role": "Senior UX Designer, enterprise software",
-   "org": "enterprise software",
+   "role": "UX practitioner",
+   "org": "SAP",
    "group": "practitioner",
    "mus": 69,
    "sketch": "Cyclical-devaluation lens. Reads AI as accelerant of an existing dynamic."
   },
   {
    "name": "P2",
-   "role": "UX Design Specialist, enterprise software",
-   "org": "enterprise software",
+   "role": "UX practitioner",
+   "org": "SAP",
    "group": "practitioner",
    "mus": 117,
    "sketch": "Optimistic. AI threat overblown; core UX unchanged."
   },
   {
    "name": "P3",
-   "role": "Recent graduate, HCI/Design program",
-   "org": "HCI/Design program",
+   "role": "Graduate student",
+   "org": "Indiana University",
    "group": "student",
    "mus": 177,
    "sketch": "Frustrated. Education-practice gap and job-market anxiety dominate."
   },
   {
    "name": "P4",
-   "role": "Graduate student, HCI/Design program",
-   "org": "HCI/Design program",
+   "role": "Graduate student",
+   "org": "Indiana University",
    "group": "student",
    "mus": 35,
    "sketch": "Pragmatic. Workarounds and AI-as-scaffold posture."
