@@ -119,6 +119,82 @@ strong { font-weight: 600; }
   border-radius: 0 4px 4px 0;
 }
 
+/* ===== Gap statement ===== */
+.gap-statement {
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+.gap-heading {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+.gap-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.gap-col {
+  border-radius: 4px;
+  padding: 16px 20px;
+  font-size: 0.95rem;
+}
+.gap-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+.gap-desired {
+  background: #eef4f0;
+  border-left: 3px solid var(--positive);
+}
+.gap-desired .gap-label { color: var(--positive); }
+.gap-actual {
+  background: #f7eeec;
+  border-left: 3px solid var(--negative);
+}
+.gap-actual .gap-label { color: var(--negative); }
+.gap-method {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 820px;
+  margin: 0;
+}
+
+/* ===== Heatmap CSS tooltip ===== */
+.hm-cell {
+  position: relative;
+}
+.hm-cell::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26,26,26,0.93);
+  color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 10;
+}
+.hm-cell:hover::after { opacity: 1; }
+
 /* ===== Section header ===== */
 section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
 .section-header { margin-bottom: 36px; max-width: 880px; }
@@ -410,4 +486,5 @@ section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
 @media (max-width: 600px) {
   .participants { grid-template-columns: 1fr; }
   .filters { grid-template-columns: 1fr; }
+  .gap-cols { grid-template-columns: 1fr; }
 }
