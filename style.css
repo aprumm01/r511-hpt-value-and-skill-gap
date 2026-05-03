@@ -224,9 +224,7 @@ section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
 .scrolly-visual {
   position: sticky;
   top: 80px;
-  height: calc(100vh - 100px);
-  display: flex;
-  align-items: center;
+  padding-top: 4vh;
 }
 .vis-card {
   background: #fff;
@@ -284,6 +282,65 @@ section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.78rem;
   color: var(--ink-soft);
+}
+
+/* ===== BEM explainer ===== */
+.bem-explainer {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.bem-explainer-heading {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+.bem-explainer > p { font-size: 0.95rem; margin-bottom: 0; }
+.bem-grid-exp {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr 1fr;
+  gap: 6px;
+  margin: 18px 0;
+}
+.bem-row-exp {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 12px 14px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.3;
+}
+.bem-row-exp span { font-weight: 400; font-size: 0.72rem; margin-top: 4px; opacity: 0.8; }
+.bem-row-exp.env { background: #e8f0f8; color: var(--practitioner); }
+.bem-row-exp.ind { background: #f8f0e0; color: var(--student); }
+.bem-cell-exp {
+  font-size: 0.86rem;
+  padding: 12px 14px;
+  background: var(--paper-2);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.bem-cell-exp strong {
+  display: block;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  margin-bottom: 3px;
+}
+.bem-explainer-note {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+  margin: 0;
 }
 
 /* ===== Heatmap ===== */
@@ -478,6 +535,8 @@ section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
   .scrolly-visual { position: relative; top: 0; height: auto; margin-bottom: 32px; }
   .scrolly-text { gap: 32px; padding-bottom: 0; }
   .dashboard-grid, .survey-grid { grid-template-columns: 1fr; }
+  .bem-grid-exp { grid-template-columns: 1fr; }
+  .bem-row-exp.env, .bem-row-exp.ind { border-radius: 4px; }
   #heatmap { grid-template-columns: 90px repeat(6, 1fr); font-size: 0.7rem; }
   .hm-cell { min-height: 44px; }
   .hm-cell .hm-pct { font-size: 0.9rem; }

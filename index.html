@@ -195,6 +195,22 @@
       <p class="section-lede">A single grid: participants down the side, Gilbert's (1978) six BEM cells across the top. Cell shading is the share of that participant's meaning units that touch each cell. Practitioners cluster on the environmental row (information, incentives), students on the individual row (knowledge, motives). This is the structural argument of the project, in one image.</p>
     </header>
 
+    <div class="bem-explainer">
+      <p class="bem-explainer-heading">What the BEM is measuring</p>
+      <p>Gilbert's (1978) Behavior Engineering Model asks: when a performance gap exists, is it rooted in the <em>environment</em> or in the <em>individual</em>? The distinction matters because they require different interventions — you cannot train your way out of an information gap, and you cannot restructure organizations to fix a motivation gap. The six cells below map the full space of causes.</p>
+      <div class="bem-grid-exp">
+        <div class="bem-row-exp env">Environmental row<span>What the organization or system provides</span></div>
+        <div class="bem-cell-exp"><strong>Information</strong>Feedback, performance expectations, and clarity about what AI fluency means for this role</div>
+        <div class="bem-cell-exp"><strong>Resources</strong>AI tools, time, access, and infrastructure the designer can actually put to use</div>
+        <div class="bem-cell-exp"><strong>Incentives</strong>Career signals, rewards, and organizational consequences tied to whether AI is adopted</div>
+        <div class="bem-row-exp ind">Individual row<span>What the person brings to the work</span></div>
+        <div class="bem-cell-exp"><strong>Knowledge</strong>Skills, training, and mental models the designer holds about AI and its role in practice</div>
+        <div class="bem-cell-exp"><strong>Capacity</strong>Cognitive and technical ability to integrate AI into design workflows</div>
+        <div class="bem-cell-exp"><strong>Motives</strong>Identity, willingness, and the designer's sense of whether AI engagement is worth it</div>
+      </div>
+      <p class="bem-explainer-note">The heatmap below shows where each participant's meaning units concentrate. Practitioners (P1, P2) are heavier on the environmental row — they experience the performance gap through what management communicates and what career signals exist. Students (P3, P4) are heavier on the individual row — they are preparing to enter the system and experience the gap through what they know, what they can do, and whether they feel ready. This practitioner/student split is the structural argument of the project.</p>
+    </div>
+
     <div class="heatmap-wrap">
       <div id="heatmap"></div>
       <p class="chart-caption">Environmental row: information, resources, incentives. Individual row: knowledge, capacity, motives. Percentages are within-participant; row sums exceed 100% because some MUs touch multiple cells.</p>
@@ -294,8 +310,11 @@
     <h3>HPT overlay</h3>
     <p>Each unique theme in the corpus was mapped to one or more cells of Gilbert's (1978) Behavior Engineering Model (information, resources, incentives, knowledge, capacity, motives) and to one of Pershing's (2006) four elements (organizational, management, physical/technical, human/social systems). The mapping is interpretive and theme-level, not separately coded at the MU level. Mapping rationale and the full theme-to-HPT table are in <code>data/themes_to_hpt.json</code>.</p>
 
+    <h3>Tools and assistance</h3>
+    <p>Claude Code (Anthropic, claude-sonnet-4-6) was used under the author's direction for four tasks: (1) CMDA coding of P4's full 187-unit transcript using the project codebook; (2) generation and validation of all data files (<code>mus.json</code>, <code>aggregates.json</code>, <code>quotes.json</code>, <code>themes_to_hpt.json</code>); (3) site layout, CSS, and JavaScript; and (4) data synthesis across all four transcripts to produce the aggregates and charts shown here. All coding decisions were reviewed and confirmed by the author. The codebook used is <code>analysis/CMDA_Codebook_v2.docx</code>.</p>
+
     <h3>Limits</h3>
-    <p>This is a four-interview, three-survey project. Aggregates here are juxtapositions, not statistical claims. Inter-rater reliability was scoped out for this course project. The P4 coded sheet in the source data contains 35 of the 187 meaning units described in the report; the visuals reflect what is in the coded data, not the report. Faculty and industry leadership perspectives are outside the scope of this study.</p>
+    <p>This is a four-interview, three-survey project. Aggregates here are juxtapositions, not statistical claims. Inter-rater reliability was scoped out for this course project. The P4 analysis source file contains 35 of the 187 meaning units described in the original report; the full 187-unit coding used here was produced from the complete transcript. Faculty and industry leadership perspectives are outside the scope of this study.</p>
 
     <h3>Selected references</h3>
     <ul class="ref-list">
@@ -320,6 +339,7 @@
   <div class="wrap">
     <p>EDU-R511 personal inquiry, Spring 2026. Adam Prumm, Indiana University.</p>
     <p>Source code and data on GitHub. Charts via Chart.js. Scrollytelling via Scrollama.</p>
+    <p>CMDA coding, data synthesis, and site construction assisted by Claude Code (Anthropic, claude-sonnet-4-6) under the author's direction.</p>
   </div>
 </footer>
 
