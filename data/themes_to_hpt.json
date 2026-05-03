@@ -64,6 +64,12 @@
     "UX Future Role":                       {"bem": ["information"], "pershing": "human_social",                    "cluster": "future_work",        "note": "Evolution rather than extinction"},
     "UX Responsibilities":                  {"bem": ["knowledge"], "pershing": "management",                        "cluster": "value_articulation", "note": "Evangelism burden on UX practitioners"},
     "UX Value Explanation":                 {"bem": ["knowledge"], "pershing": "human_social",                      "cluster": "value_articulation", "note": "How interface design works"},
-    "UX Value and Industry Expectations":   {"bem": ["information"], "pershing": "organizational",                  "cluster": "value_articulation", "note": "Pattern recognition and monetization vs idealism"}
+    "UX Value and Industry Expectations":   {"bem": ["information"], "pershing": "organizational",                  "cluster": "value_articulation", "note": "Pattern recognition and monetization vs idealism"},
+    "Service Design Background":            {"bem": ["knowledge"], "pershing": "human_social",                       "cluster": "value_articulation", "note": "Prior consulting and industrial design shapes current perceptions"},
+    "UX Value in Industry":                 {"bem": ["information", "incentives"], "pershing": "organizational",     "cluster": "org_perception",     "note": "Actual company priorities — monetization, pattern recognition, metrics"},
+    "Design Education and Values":          {"bem": ["knowledge", "motives"], "pershing": "human_social",            "cluster": "value_articulation", "note": "What program teaches and what gets recognized; tension with faculty ethics"},
+    "Educational Context and AI Policy":    {"bem": ["information", "motives"], "pershing": "management",            "cluster": "edu_gap",            "note": "Course-level AI restrictions, faculty beliefs, informal workarounds"},
+    "Future of Design Work":                {"bem": ["knowledge", "capacity"], "pershing": "organizational",         "cluster": "future_work",        "note": "Strategic designer role, AI automation of deliverables, consultant model"},
+    "Learning and AI":                      {"bem": ["knowledge"], "pershing": "human_social",                      "cluster": "ai_tools",           "note": "Scaffolded learning through AI tools; constraints force independent skill development"}
   }
 }
