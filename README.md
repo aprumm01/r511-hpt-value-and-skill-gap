@@ -1,6 +1,6 @@
-# R511: HPT Value and Skill Gap
+# R511: AI Literacy, Designer Value, and the Making of a Skill Gap
 
-An R511 personal inquiry visualizing how UX practitioners and HCID students experience the education-practice gap and the rise of AI tools. Framed by Human Performance Technology (HPT).
+An R511 personal inquiry visualizing how UX practitioners and HCID students perceive designer value as AI reshapes practice — and what that reveals about whether academic programs are building AI literacy or building skill gaps.
 
 **R2 question:** *How does the use of AI in design practice shift perceptions of designer value?*
 
@@ -10,81 +10,115 @@ An R511 personal inquiry visualizing how UX practitioners and HCID students expe
 
 A static, single-page site combining guided scrollytelling with a filterable dashboard. Built with vanilla HTML, CSS, and JavaScript, plus Chart.js and Scrollama from a CDN. No build step required.
 
-The site reads four interview transcripts (two SAP Concur practitioners and two IU HCID students) coded under a CMDA-derived codebook, layers an HPT interpretive overlay (Gilbert's Behavior Engineering Model and Pershing's four-element taxonomy), and presents:
+The site reads four interview transcripts (two SAP practitioners and two IU HCID students) coded under a CMDA-derived codebook, layers an HPT interpretive overlay (Gilbert's Behavior Engineering Model and Pershing's four-element taxonomy), and presents:
 
-1. **Hero** — R2 question, four participant cards, methodological framing
-2. **Section A: Education-practice gap** — five scrollytelling steps with a chart that morphs as the reader scrolls, plus quote cards
-3. **Section B: AI in practice and studies** — same scrollytelling pattern, framed by Gilbert's BEM
-4. **Section C: BEM heatmap** — single grid showing where each participant's MUs concentrate across the six BEM cells
+1. **Hero** — R2 question, participant cards, theory primer (Gilbert, Pershing, Holton), performance gap statement
+2. **Section A: Education-practice gap** — narrative framing + five scrollytelling steps with a morphing chart, plus quote cards
+3. **Section B: AI in practice and studies** — narrative framing + scrollytelling, framed by Gilbert's BEM environmental/individual split
+4. **Section C: BEM heatmap** — single grid showing where each participant's MUs concentrate across the six BEM cells, plus a post-heatmap intervention implication block
 5. **Dashboard** — filter by participant, BEM cell, cluster, and sentiment; see counts and matching quotes
 6. **Survey companion** — three Qualtrics responses, plotted with appropriate hedging
 7. **Methods, limits, and citations**
 
+---
+
 ## Repository layout
 
 ```
-site/
-├── index.html          # Page structure
+R511_Site/
+├── index.html          # Page structure and all narrative content
 ├── style.css           # All styling (no framework)
 ├── app.js              # Charts, scrollytelling, dashboard logic
 ├── data/
-│   ├── mus.json        # 398 coded meaning units (slim fields)
+│   ├── mus.json        # 550 coded meaning units (slim fields; P1:69 P2:117 P3:177 P4:187)
 │   ├── aggregates.json # Pre-computed counts and sketches
-│   ├── quotes.json     # 31 selected high-signal quotes
+│   ├── quotes.json     # 31+ selected high-signal quotes
 │   ├── survey.json     # 3 Qualtrics responses
-│   ├── themes_to_hpt.json # Theme-to-HPT mapping with rationale
-│   └── MUs_raw.json    # Full raw export from xlsx (for re-derivations)
+│   ├── themes_to_hpt.json # Theme-to-BEM/Pershing mapping with rationale
+│   └── MUs_raw.json    # Full raw export (unused by site)
 └── README.md
 ```
 
+---
+
 ## Run locally
 
-`fetch()` calls block when opening the page as a `file://` URL. Serve over HTTP from the `site/` folder:
+`fetch()` calls block when opening as a `file://` URL. Serve over HTTP:
 
 ```bash
-cd site
-python3 -m http.server 8080
-# then open http://localhost:8080
+cd R511_Site
+python -m http.server 8080
+# open http://localhost:8080
 ```
 
-## Deploy to GitHub Pages
+Note: use `python`, not `python3` — the `python3` alias is not configured on the primary machine.
 
-1. Create a new GitHub repo (public).
-2. From the repo root: `git init`, commit the contents of `site/` so `index.html` sits at the repo root (or under a `/docs` folder).
-3. Push to `main`.
-4. In repo settings → Pages: source `Deploy from a branch`, branch `main`, folder `/` (or `/docs`).
-5. URL appears within a minute or two at `https://<username>.github.io/<repo>/`.
-
-If the repo will hold the project broadly (analysis files plus the site), put the site under `/docs` and select that as the Pages source so the rest of the repo stays unpublished.
+---
 
 ## How the HPT overlay works
 
-The CMDA codebook codes meaning units inductively for theme, subtheme, sentiment, tone, speech act, hedging, and emotional intensity. The HPT layer is added on top: each unique theme is mapped to one or more cells of Gilbert's (1978) BEM (information, resources, incentives, knowledge, capacity, motives) and to one of Pershing's (2006) four elements (organizational, management, physical/technical, human/social systems). The mapping lives in `data/themes_to_hpt.json` with a one-line rationale per theme.
+CMDA codes meaning units inductively for theme, subtheme, sentiment, tone, speech act, hedging, and emotional intensity. The HPT layer is added on top: each unique theme is mapped to one or more cells of Gilbert's (1978) BEM and to one of Pershing's (2006) four elements. The mapping lives in `data/themes_to_hpt.json` with a one-line rationale per theme. This is interpretive overlay at the theme level, not a separately coded MU dimension.
 
-This is interpretive overlay at the theme level, not a separately coded MU dimension. The methods section of the site states this plainly.
+---
+
+## Participant mapping
+
+| Label | Role | Org | MUs |
+|-------|------|-----|-----|
+| P1 | UX practitioner (Senior) | SAP | 69 |
+| P2 | UX practitioner (Specialist) | SAP | 117 |
+| P3 | Graduate student | Indiana University HCID | 177 |
+| P4 | Graduate student | Indiana University HCID | 187 |
+
+Anonymization rule: the site uses only P1–P4. No names, specific titles, program cohort years, or division references appear anywhere on the site.
+
+---
+
+## Session history
+
+### 2026-05-03 — Storytelling and title revision
+- **Title changed** from "HPT Value and Skill Gap" to "AI Literacy, Designer Value, and the Making of a Skill Gap" — updated in `<title>`, header brand, and hero lede
+- **Theory primer added** to hero: three cards introducing Gilbert (BEM), Pershing (four-element taxonomy), and Holton (transfer/performance domain) in plain language, each grounded in participant voice
+- **Narrative blocks added** to Section A, Section B, and Section C connecting HPT theory to specific participant quotes and intervention implications
+- **Gilbert card rewritten**: moved the framing question ("are they pointing at the system or at themselves?") to the opening; "AI fluency" changed to "AI literacy" throughout
+- **Pershing card rewritten**: removed parenthetical clutter; added explicit connection to AI and design education
+- **Hero lede updated** to reflect the new title framing: academic programs building toward AI literacy vs. away from it
+- **HANDOFF.md removed** from repo; handoff documentation moved to Notion (Handoff sessions (Final) page)
+
+### 2026-05-03 — BEM explainer, alignment fix, acknowledgment (earlier session)
+- Added BEM explainer block before Section C heatmap
+- Fixed Section A scrollytelling layout offset
+- Added Claude Code acknowledgment to methods section and footer
+
+---
 
 ## Limits
 
-- N = 4 interviews and N = 3 surveys. Patterns are juxtapositions, not statistical findings.
+- N = 4 interviews, N = 3 surveys. Patterns are juxtapositions, not statistical findings.
 - Inter-rater reliability is scoped out for this course project.
-- The Pradyumna coded sheet (`P4_Interview_Analysis_Report.xlsx`) contains 35 of the 187 MUs described in the corresponding report. Visuals reflect what is in the coded data, not the report.
-- The codebook P-numbering scheme, the file P-numbering, and within-report labeling do not agree. Internally the site uses participant names (Senior, Specialist, Saeoul, Pradyumna) to avoid ambiguity.
+- P4 full coding (187 MUs) was produced from the complete transcript; the source xlsx contains only 35 rows.
+- HPT codes are applied at the theme level, not re-coded per MU.
+
+---
 
 ## Selected references
 
-Cho, Y., Jo, S. J., Park, S., Kang, I., & Chen, Z. (2011). The current state of human performance technology: A citation network analysis of *Performance Improvement Quarterly*, 1988–2010. *Performance Improvement Quarterly, 24*(1), 69–95.
+Cho, Y., Jo, S. J., Park, S., Kang, I., & Chen, Z. (2011). The current state of human performance technology. *Performance Improvement Quarterly, 24*(1), 69–95.
 
 Gilbert, T. F. (1978). *Human competence: Engineering worthy performance.* McGraw-Hill.
 
-Herring, S. C. (2004). Computer-mediated discourse analysis: An approach to researching online behavior. In S. A. Barab, R. Kling, & J. H. Gray (Eds.), *Designing for virtual communities in the service of learning* (pp. 338–376). Cambridge University Press.
+Herring, S. C. (2004). Computer-mediated discourse analysis. In Barab, Kling, & Gray (Eds.), *Designing for virtual communities in the service of learning* (pp. 338–376). Cambridge University Press.
+
+Holton, E. F. (1999). Performance domain and their boundaries. *Advances in Developing Human Resources, 1*(3), 26–46.
 
 Pershing, J. A. (Ed.). (2006). *Handbook of human performance technology* (3rd ed.). Pfeiffer.
 
-Wilmoth, F. S., Prigmore, C., & Bray, M. (2010). HPT models: An overview of the major models in the field. In K. H. Silber et al. (Eds.), *Handbook of improving performance in the workplace* (Vol. 2, pp. 5–26). Pfeiffer/ISPI.
+---
 
 ## Author
 
 Adam Prumm — EDU-R511, Spring 2026, Indiana University HCID PhD program.
+Claude Code (Anthropic, claude-sonnet-4-6) assisted with CMDA coding, data synthesis, site construction, and narrative development under the author's direction.
 
 ## License
 
