@@ -1,0 +1,250 @@
+﻿[
+ {
+  "p": "P1",
+  "theme": "Company/External Perception",
+  "cluster": "org_perception",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "We really need to shove this out the door next quarter because we already promised it to these key customers - we don't have time for proper design and research"
+ },
+ {
+  "p": "P1",
+  "theme": "AI Impact on Designer Value",
+  "cluster": "ai_threat",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "To make the leap to I can do your job for you - that's a bit wild"
+ },
+ {
+  "p": "P1",
+  "theme": "Company/External Perception",
+  "cluster": "org_perception",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "A lot of people don't actually understand what UX does - they think it's just make it pretty"
+ },
+ {
+  "p": "P1",
+  "theme": "AI Hype and Narrative",
+  "cluster": "ai_threat",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "The perception and the hype and the marketing has made it seem like it's the second coming"
+ },
+ {
+  "p": "P1",
+  "theme": "AI Devaluation Risk",
+  "cluster": "ai_threat",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "Now we have this magic thing that supposedly can do this - well we can save money, we don't need to hire as many UX people"
+ },
+ {
+  "p": "P2",
+  "theme": "AI Devaluation Risk",
+  "cluster": "ai_threat",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "That would be a mistake because they'd lose the actual value UX provides"
+ },
+ {
+  "p": "P3",
+  "theme": "Professional Work Reality",
+  "cluster": "edu_gap",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "After working I don't think anyone really cares about that"
+ },
+ {
+  "p": "P3",
+  "theme": "Professional Work Reality",
+  "cluster": "edu_gap",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "Communication with leadership endless reviews is crazy"
+ },
+ {
+  "p": "P3",
+  "theme": "Education-Practice Gap",
+  "cluster": "edu_gap",
+  "sentiment": "Neutral",
+  "tone": "Concerned",
+  "text": "How they make decisions in every step especially on visual part"
+ },
+ {
+  "p": "P3",
+  "theme": "Education-Practice Gap",
+  "cluster": "edu_gap",
+  "sentiment": "Neutral",
+  "tone": "Concerned",
+  "text": "UX mindset should be there but it was more about UI decisions"
+ },
+ {
+  "p": "P3",
+  "theme": "AI Tool Experience",
+  "cluster": "ai_tools",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "Most cases we were discouraged to use AI"
+ },
+ {
+  "p": "P3",
+  "theme": "AI Tool Experience",
+  "cluster": "ai_tools",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "Austin gave zero marks if he thought documentation was AI written"
+ },
+ {
+  "p": "P3",
+  "theme": "AI Tool Experience",
+  "cluster": "ai_tools",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "Since rule was particular we were afraid of taking risk"
+ },
+ {
+  "p": "P3",
+  "theme": "AI Tool Experience",
+  "cluster": "ai_tools",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "Most people were discouraged about using AI"
+ },
+ {
+  "p": "P3",
+  "theme": "Tool Dependency Concerns",
+  "cluster": "ai_threat",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "When using AI I sometimes neglect gut feeling and follow what it suggests"
+ },
+ {
+  "p": "P3",
+  "theme": "Tool Dependency Concerns",
+  "cluster": "ai_threat",
+  "sentiment": "Negative",
+  "tone": "Uncertain",
+  "text": "But not sure if Claude is doing it right"
+ },
+ {
+  "p": "P3",
+  "theme": "Tool Dependency Concerns",
+  "cluster": "ai_threat",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "I feel like I'm being dumb and lazy at the same time"
+ },
+ {
+  "p": "P3",
+  "theme": "Tool Dependency Concerns",
+  "cluster": "ai_threat",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "After break I realize oh this isn't direction I needed"
+ },
+ {
+  "p": "P3",
+  "theme": "Design Value Shift",
+  "cluster": "future_work",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "That was just very education only"
+ },
+ {
+  "p": "P3",
+  "theme": "Design Value Shift",
+  "cluster": "future_work",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "Just iterate based on user reaction after launch"
+ },
+ {
+  "p": "P3",
+  "theme": "Design Value Shift",
+  "cluster": "future_work",
+  "sentiment": "Neutral",
+  "tone": "Concerned",
+  "text": "User centric mindset not only replaced by AI but paradigm shift to launch ASAP"
+ },
+ {
+  "p": "P3",
+  "theme": "Design Value Shift",
+  "cluster": "future_work",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "User research is a bonus not core value"
+ },
+ {
+  "p": "P4",
+  "theme": "AI Tool Usage and Capabilities",
+  "cluster": "ai_tools",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "After it generates a design or a pattern I don't think it never idea... every output will be the same pattern same design same layouting same kind of structure"
+ },
+ {
+  "p": "P4",
+  "theme": "Educational Context and Policies",
+  "cluster": "edu_gap",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "It's not affected but sometimes it feels frustrating that I can't go to the tool even for anything"
+ },
+ {
+  "p": "P4",
+  "theme": "UX Value and Industry Expectations",
+  "cluster": "value_articulation",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "Try to hack it and try to bring in more users or try to make the product look more addictive so that they have that ballpark number of users in there every time"
+ },
+ {
+  "p": "P4",
+  "theme": "Future of Design Work",
+  "cluster": "future_work",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "Once you once a designer designs thing I think they'll develop a tool let's say AI that can just manage small changes"
+ },
+ {
+  "p": "P4",
+  "theme": "Future of Design Work",
+  "cluster": "future_work",
+  "sentiment": "Negative",
+  "tone": "Concerned",
+  "text": "Our designers role might more be a consultant rather than a full time role"
+ },
+ {
+  "p": "P4",
+  "theme": "Design Education Philosophy",
+  "cluster": "edu_gap",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "Most of the times we end up picking our friends or somebody who we are closely in touch with as users where we don't get real data"
+ },
+ {
+  "p": "P4",
+  "theme": "Design Education Philosophy",
+  "cluster": "edu_gap",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "Everything has become digitally and most of the times it's like go to chat GPT and ask it to pull resources and everything is in one page"
+ },
+ {
+  "p": "P4",
+  "theme": "Design Education Philosophy",
+  "cluster": "edu_gap",
+  "sentiment": "Negative",
+  "tone": "Uncertain",
+  "text": "Now I don't know whether it's it has simplified things or it has made us lazy or something I don't really get that"
+ },
+ {
+  "p": "P4",
+  "theme": "AI Tool Usage and Capabilities",
+  "cluster": "ai_tools",
+  "sentiment": "Negative",
+  "tone": "Frustrated",
+  "text": "There is a lot of things like loopholes in Gemini it tries to go back to the directory of all the conversations and try to bring in examples from there which you don't need"
+ }
+]

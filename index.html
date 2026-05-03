@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>R511: HPT Value and Skill Gap</title>
+<meta name="description" content="An R511 personal inquiry visualizing how UX practitioners and HCID students experience the education-practice gap and the rise of AI tools, framed by Human Performance Technology." />
+<link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <span class="brand-mark">R2</span>
+      <span class="brand-text">R511: HPT Value and Skill Gap</span>
+    </div>
+    <nav>
+      <a href="#hero">Overview</a>
+      <a href="#section-edu">Education gap</a>
+      <a href="#section-ai">AI impact</a>
+      <a href="#section-heatmap">HPT map</a>
+      <a href="#dashboard">Explore</a>
+      <a href="#methods">Methods</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- =================== HERO =================== -->
+<section id="hero" class="hero">
+  <div class="wrap">
+    <p class="eyebrow">EDU-R511 personal inquiry &middot; Spring 2026 &middot; Indiana University</p>
+    <h1>How does the use of AI in design practice shift perceptions of designer value?</h1>
+    <p class="lede">
+      Four interviews with UX practitioners and HCID students at Indiana University, read through the lens of <strong>Human Performance Technology (HPT)</strong>. The performance gap is treated as a systems problem: a misalignment between the program, the workplace, and the tools that now sit in both.
+    </p>
+
+    <div class="participants">
+      <article class="p-card practitioner" data-p="P1">
+        <div class="p-tag">Practitioner</div>
+        <h3>P1</h3>
+        <p class="p-role">Senior UX Designer, SAP Concur</p>
+        <p class="p-mus"><span id="mu-P1">…</span> meaning units</p>
+        <p class="p-sketch" id="sketch-P1"></p>
+      </article>
+      <article class="p-card practitioner" data-p="P2">
+        <div class="p-tag">Practitioner</div>
+        <h3>P2</h3>
+        <p class="p-role">UX Design Specialist, SAP Concur Travel</p>
+        <p class="p-mus"><span id="mu-P2">…</span> meaning units</p>
+        <p class="p-sketch" id="sketch-P2"></p>
+      </article>
+      <article class="p-card student" data-p="P3">
+        <div class="p-tag">Student</div>
+        <h3>P3</h3>
+        <p class="p-role">Recent HCID graduate</p>
+        <p class="p-mus"><span id="mu-P3">…</span> meaning units</p>
+        <p class="p-sketch" id="sketch-P3"></p>
+      </article>
+      <article class="p-card student" data-p="P4">
+        <div class="p-tag">Student</div>
+        <h3>P4</h3>
+        <p class="p-role">Second-semester HCID student</p>
+        <p class="p-mus"><span id="mu-P4">…</span> meaning units</p>
+        <p class="p-sketch" id="sketch-P4"></p>
+      </article>
+    </div>
+
+    <div class="hero-note">
+      <p><strong>A note on what this site is and is not.</strong> Four interviews and three completed surveys. The visuals are designed to illustrate juxtapositions and surface participant language, not to make statistical claims. HPT terminology in chart axes is interpretive overlay applied at the theme level, not a separately coded dimension. Methodological details below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SECTION A: EDU GAP =================== -->
+<section id="section-edu" class="scrolly">
+  <div class="wrap">
+    <header class="section-header">
+      <p class="section-eyebrow">Section A</p>
+      <h2>The education-practice gap, as students live it</h2>
+      <p class="section-lede">For P3 and P4, the gap dominates the transcript. Practitioners describe it as a memory; students describe it as a present condition. In Pershing's (2006) taxonomy this is a <em>human and social systems</em> failure where "education and training systems have clear linkages with workplace applications" (p. 19) is the standard the program is failing.</p>
+    </header>
+
+    <div class="scrolly-grid">
+      <div class="scrolly-text">
+        <div class="step" data-step="edu-1">
+          <h3>HPT names the gap before AI does.</h3>
+          <p>Holton's (1999) work on transfer of training is one of the most centrally cited in HPT (Cho et al., 2011). The frame predates the AI conversation. AI is making the transfer failure more visible, not creating it.</p>
+        </div>
+        <div class="step" data-step="edu-2">
+          <h3>Where each participant's attention sits.</h3>
+          <p>The bar above shows how meaning units distribute across the six clusters in this corpus. P3's volume on the education-practice gap is structural, not stylistic. P4 spends energy on educational policies and AI tools because workarounds are the cost of the gap.</p>
+        </div>
+        <div class="step" data-step="edu-3">
+          <h3>Which Pershing element is hit first.</h3>
+          <p>Pershing (2006) sequences analysis from organizational systems to human and social systems. For students the bottleneck sits in human/social (the program itself) and management (industry expectations being communicated). For practitioners, it sits in management and organizational systems.</p>
+        </div>
+        <div class="step" data-step="edu-4">
+          <h3>Sentiment carries the weight the chart cannot.</h3>
+          <p>On the education-practice gap cluster, students' sentiment skews negative. Practitioners express the same observations with neutral or evaluative tone. The gap is the same; the lived cost is not.</p>
+        </div>
+        <div class="step" data-step="edu-5">
+          <h3>Read what they actually said.</h3>
+          <p>The chart shows shape; the quotes show weight.</p>
+        </div>
+      </div>
+
+      <div class="scrolly-visual">
+        <div class="vis-card">
+          <h4 id="edu-vis-title">Cluster distribution by participant</h4>
+          <div class="chart-box"><canvas id="chart-edu"></canvas></div>
+          <p class="chart-caption" id="edu-vis-caption">Each bar is one participant's meaning units, segmented by the six clusters in the corpus.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-grid" id="quotes-edu" aria-label="Selected quotes on the education-practice gap"></div>
+  </div>
+</section>
+
+<!-- =================== SECTION B: AI IMPACT =================== -->
+<section id="section-ai" class="scrolly">
+  <div class="wrap">
+    <header class="section-header">
+      <p class="section-eyebrow">Section B</p>
+      <h2>AI in practice and AI in studies</h2>
+      <p class="section-lede">Two practitioners at the same company hold opposite stances on AI. Two students under the same faculty policies adopt very different postures. When the environmental row of Gilbert's (1978) BEM is held constant, variation in performance perception comes from the individual row: knowledge, capacity, motives.</p>
+    </header>
+
+    <div class="scrolly-grid">
+      <div class="scrolly-text">
+        <div class="step" data-step="ai-1">
+          <h3>Same environment, opposite stance.</h3>
+          <p>P1 and P2 work for the same company, with the same AI tools available. P1 reads cyclical devaluation; P2 calls the replacement narrative "overblown" (P2 Report, Theme 19). The split is at the individual row of the BEM, not the environmental row.</p>
+        </div>
+        <div class="step" data-step="ai-2">
+          <h3>Where AI shows up in their language.</h3>
+          <p>The chart maps each participant's AI-related meaning units onto Gilbert's (1978) BEM cells. Tools as resources, narratives as information, motives as identity work. Same six cells, different shapes per participant.</p>
+        </div>
+        <div class="step" data-step="ai-3">
+          <h3>AI sentiment is not AI use.</h3>
+          <p>P4 uses AI heavily and talks about it pragmatically. P3 uses it less and talks about it anxiously. P2 talks about it positively while keeping it to 30% of the workday. The chart separates volume from valence.</p>
+        </div>
+        <div class="step" data-step="ai-4">
+          <h3>Which cluster carries which charge.</h3>
+          <p>Across the AI-tools cluster, sentiment runs more positive. Across the AI-threat cluster, sentiment turns. The same participant can hold both.</p>
+        </div>
+        <div class="step" data-step="ai-5">
+          <h3>Read what they actually said.</h3>
+          <p>The visualization argues; the quotes situate.</p>
+        </div>
+      </div>
+
+      <div class="scrolly-visual">
+        <div class="vis-card">
+          <h4 id="ai-vis-title">AI mentions on Gilbert's BEM</h4>
+          <div class="chart-box"><canvas id="chart-ai"></canvas></div>
+          <p class="chart-caption" id="ai-vis-caption">AI-related meaning units mapped to BEM cells by participant.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-grid" id="quotes-ai" aria-label="Selected quotes on AI impact"></div>
+  </div>
+</section>
+
+<!-- =================== SECTION C: HEATMAP =================== -->
+<section id="section-heatmap" class="heatmap-section">
+  <div class="wrap">
+    <header class="section-header">
+      <p class="section-eyebrow">Section C</p>
+      <h2>Where the four participants land on the BEM</h2>
+      <p class="section-lede">A single grid: participants down the side, Gilbert's (1978) six BEM cells across the top. Cell shading is the share of that participant's meaning units that touch each cell. Practitioners cluster on the environmental row (information, incentives), students on the individual row (knowledge, motives). This is the structural argument of the project, in one image.</p>
+    </header>
+
+    <div class="heatmap-wrap">
+      <div id="heatmap"></div>
+      <p class="chart-caption">Environmental row: information, resources, incentives. Individual row: knowledge, capacity, motives. Percentages are within-participant; row sums exceed 100% because some MUs touch multiple cells.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== DASHBOARD =================== -->
+<section id="dashboard" class="dashboard">
+  <div class="wrap">
+    <header class="section-header">
+      <p class="section-eyebrow">Explore</p>
+      <h2>Filter the corpus</h2>
+      <p class="section-lede">For the curious. Select participants, BEM cells, and clusters to see counts and quotes. With a four-interview corpus, treat patterns as suggestive rather than statistical.</p>
+    </header>
+
+    <div class="filters">
+      <fieldset>
+        <legend>Participant</legend>
+        <label><input type="checkbox" class="f-p" value="P1" checked> P1</label>
+        <label><input type="checkbox" class="f-p" value="P2" checked> P2</label>
+        <label><input type="checkbox" class="f-p" value="P3" checked> P3</label>
+        <label><input type="checkbox" class="f-p" value="P4" checked> P4</label>
+      </fieldset>
+      <fieldset>
+        <legend>BEM cell</legend>
+        <label><input type="checkbox" class="f-bem" value="information" checked> Information</label>
+        <label><input type="checkbox" class="f-bem" value="resources" checked> Resources</label>
+        <label><input type="checkbox" class="f-bem" value="incentives" checked> Incentives</label>
+        <label><input type="checkbox" class="f-bem" value="knowledge" checked> Knowledge</label>
+        <label><input type="checkbox" class="f-bem" value="capacity" checked> Capacity</label>
+        <label><input type="checkbox" class="f-bem" value="motives" checked> Motives</label>
+      </fieldset>
+      <fieldset>
+        <legend>Cluster</legend>
+        <label><input type="checkbox" class="f-cluster" value="edu_gap" checked> Education gap</label>
+        <label><input type="checkbox" class="f-cluster" value="org_perception" checked> Org perception</label>
+        <label><input type="checkbox" class="f-cluster" value="ai_tools" checked> AI tools</label>
+        <label><input type="checkbox" class="f-cluster" value="ai_threat" checked> AI threat</label>
+        <label><input type="checkbox" class="f-cluster" value="value_articulation" checked> Value articulation</label>
+        <label><input type="checkbox" class="f-cluster" value="future_work" checked> Future of work</label>
+      </fieldset>
+      <fieldset>
+        <legend>Sentiment</legend>
+        <label><input type="checkbox" class="f-sent" value="Positive" checked> Positive</label>
+        <label><input type="checkbox" class="f-sent" value="Neutral" checked> Neutral</label>
+        <label><input type="checkbox" class="f-sent" value="Negative" checked> Negative</label>
+        <label><input type="checkbox" class="f-sent" value="Concerned" checked> Concerned</label>
+        <label><input type="checkbox" class="f-sent" value="Frustrated" checked> Frustrated</label>
+      </fieldset>
+    </div>
+
+    <div class="dashboard-stats">
+      <div class="stat"><span class="stat-num" id="stat-mus">0</span><span class="stat-label">meaning units in selection</span></div>
+      <div class="stat"><span class="stat-num" id="stat-themes">0</span><span class="stat-label">distinct themes</span></div>
+      <div class="stat"><span class="stat-num" id="stat-bem">0</span><span class="stat-label">BEM cells touched</span></div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="vis-card">
+        <h4>Cluster distribution in selection</h4>
+        <div class="chart-box"><canvas id="chart-dash-cluster"></canvas></div>
+      </div>
+      <div class="vis-card">
+        <h4>Sentiment distribution in selection</h4>
+        <div class="chart-box"><canvas id="chart-dash-sent"></canvas></div>
+      </div>
+    </div>
+
+    <h3 class="quote-list-title">Quotes matching your filters</h3>
+    <ul class="quote-list" id="quote-list"></ul>
+  </div>
+</section>
+
+<!-- =================== SURVEY COMPANION =================== -->
+<section id="survey" class="survey-section">
+  <div class="wrap">
+    <header class="section-header">
+      <p class="section-eyebrow">Companion data</p>
+      <h2>Three Qualtrics survey responses</h2>
+      <p class="section-lede">A reminder that the survey arm of this project has only three completed responses. The numbers below are illustrative juxtapositions, not findings.</p>
+    </header>
+    <div class="survey-grid">
+      <div class="vis-card"><h4>Skill rankings (1 = most important)</h4><div class="chart-box"><canvas id="chart-survey-skills"></canvas></div></div>
+      <div class="vis-card"><h4>Future feeling and program confidence (0–10)</h4><div class="chart-box"><canvas id="chart-survey-scores"></canvas></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== METHODS =================== -->
+<section id="methods" class="methods">
+  <div class="wrap">
+    <h2>Methods, limits, and citations</h2>
+    <h3>Corpus</h3>
+    <p>Four semi-structured interviews conducted in Spring 2026 with two UX practitioners at SAP Concur and two HCID students at Indiana University. Three completed Qualtrics responses serve as a small companion dataset. Interviews were transcribed, segmented into meaning units (MUs) following Herring's (2004) Computer-Mediated Discourse Analysis framework adapted to spoken transcripts, and coded inductively for theme, subtheme, sentiment, tone, speech act, hedging, and emotional intensity. The codebook explicitly narrows Herring's four levels to meaning and social behavior, since structure-level coding does not transfer to spoken data.</p>
+
+    <h3>HPT overlay</h3>
+    <p>Each unique theme in the corpus was mapped to one or more cells of Gilbert's (1978) Behavior Engineering Model (information, resources, incentives, knowledge, capacity, motives) and to one of Pershing's (2006) four elements (organizational, management, physical/technical, human/social systems). The mapping is interpretive and theme-level, not separately coded at the MU level. Mapping rationale and the full theme-to-HPT table are in <code>data/themes_to_hpt.json</code>.</p>
+
+    <h3>Limits</h3>
+    <p>This is a four-interview, three-survey project. Aggregates here are juxtapositions, not statistical claims. Inter-rater reliability was scoped out for this course project. The P4 coded sheet in the source data contains 35 of the 187 meaning units described in the report; the visuals reflect what is in the coded data, not the report.</p>
+
+    <h3>Selected references</h3>
+    <ul class="ref-list">
+      <li>Cho, Y., Jo, S. J., Park, S., Kang, I., &amp; Chen, Z. (2011). The current state of human performance technology: A citation network analysis of <em>Performance Improvement Quarterly</em>, 1988–2010. <em>Performance Improvement Quarterly, 24</em>(1), 69–95.</li>
+      <li>Gilbert, T. F. (1978). <em>Human competence: Engineering worthy performance.</em> McGraw-Hill.</li>
+      <li>Guerra, I. J. (2006). Standards and ethics in human performance technology. In J. A. Pershing (Ed.), <em>Handbook of human performance technology</em> (3rd ed., Ch. 44). Pfeiffer.</li>
+      <li>Herring, S. C. (2004). Computer-mediated discourse analysis: An approach to researching online behavior. In S. A. Barab, R. Kling, &amp; J. H. Gray (Eds.), <em>Designing for virtual communities in the service of learning</em> (pp. 338–376). Cambridge University Press.</li>
+      <li>Holton, E. F. (1999). Performance domain and their boundaries. <em>Advances in Developing Human Resources, 1</em>(3), 26–46.</li>
+      <li>Mager, R. F., &amp; Pipe, P. (1984). <em>Analyzing performance problems</em> (2nd ed.). Pitman Learning.</li>
+      <li>Martin, F., Hall, H. A., Blakely, A., Gayford, M. C., &amp; Gunter, E. (2009). The HPT model applied to a kayak company's registration process. <em>Performance Improvement, 48</em>(3), 26–34.</li>
+      <li>Pershing, J. A. (Ed.). (2006). <em>Handbook of human performance technology</em> (3rd ed.). Pfeiffer.</li>
+      <li>Stolovitch, H. D., &amp; Beresford, B. (2012). The evolution of human performance technology. ISPI.</li>
+      <li>Van Tiem, D. M., Moseley, J. L., &amp; Dessinger, J. C. (2004). <em>Fundamentals of performance technology</em> (2nd ed.). ISPI.</li>
+      <li>Wilmoth, F. S., Prigmore, C., &amp; Bray, M. (2010). HPT models: An overview of the major models in the field. In K. H. Silber et al. (Eds.), <em>Handbook of improving performance in the workplace</em> (Vol. 2, pp. 5–26). Pfeiffer/ISPI.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>EDU-R511 personal inquiry, Spring 2026. Adam Prumm, Indiana University.</p>
+    <p>Source code and data on GitHub. Charts via Chart.js. Scrollytelling via Scrollama.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

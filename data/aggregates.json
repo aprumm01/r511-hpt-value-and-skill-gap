@@ -1,0 +1,309 @@
+﻿{
+ "participants": [
+  {
+   "name": "P1",
+   "role": "Senior UX Designer",
+   "org": "SAP Concur",
+   "group": "practitioner",
+   "mus": 69,
+   "sketch": "Cyclical-devaluation lens. Reads AI as accelerant of an existing dynamic."
+  },
+  {
+   "name": "P2",
+   "role": "UX Design Specialist",
+   "org": "SAP Concur Travel",
+   "group": "practitioner",
+   "mus": 117,
+   "sketch": "Optimistic. AI threat overblown; core UX unchanged."
+  },
+  {
+   "name": "P3",
+   "role": "Recent HCID Graduate",
+   "org": "IU HCID program",
+   "group": "student",
+   "mus": 177,
+   "sketch": "Frustrated. Education-practice gap and job-market anxiety dominate."
+  },
+  {
+   "name": "P4",
+   "role": "HCID Student (2nd semester)",
+   "org": "IU HCID program",
+   "group": "student",
+   "mus": 35,
+   "sketch": "Pragmatic. Workarounds and AI-as-scaffold posture."
+  }
+ ],
+ "theme_counts": {
+  "P1": {
+   "Career Journey": 5,
+   "UX Value Explanation": 13,
+   "UX Core Value": 14,
+   "Company/External Perception": 8,
+   "UX Responsibilities": 1,
+   "AI Tool Usage": 7,
+   "AI Value in UX": 8,
+   "Non-Designer AI Use": 2,
+   "AI Impact on Designer Value": 2,
+   "AI Value Perception": 1,
+   "AI Tool Assessment": 2,
+   "AI Hype and Narrative": 1,
+   "Task Changes": 3,
+   "AI Devaluation Risk": 2
+  },
+  "P2": {
+   "Career Journey": 3,
+   "UX Value Explanation": 2,
+   "UX Core Value": 11,
+   "Company Perception of UX": 5,
+   "AI Tool Usage": 4,
+   "AI Value in UX": 3,
+   "Non-Designer AI Use": 3,
+   "AI Value Perception": 3,
+   "Task Changes": 5,
+   "AI Impact on Value": 3,
+   "AI Devaluation Risk": 5,
+   "UX Future Role": 3,
+   "Designer Skills Focus": 7,
+   "Personal Perspective": 17,
+   "Recognition": 5,
+   "Domain Complexity": 3,
+   "UX Activities": 16,
+   "AI Usage Patterns": 6,
+   "Educational Impact": 5,
+   "AI Narrative Critique": 3,
+   "AI Potential": 2,
+   "Company Activities": 3
+  },
+  "P3": {
+   "Education-Practice Gap": 41,
+   "Professional Work Reality": 19,
+   "Industry AI Expectations": 25,
+   "AI Tool Experience": 20,
+   "Critical Thinking Value": 6,
+   "Tool Dependency Concerns": 12,
+   "Job Market Anxiety": 39,
+   "Design Value Shift": 15
+  },
+  "P4": {
+   "AI Tool Usage and Capabilities": 8,
+   "Educational Context and Policies": 6,
+   "UX Value and Industry Expectations": 5,
+   "Future of Design Work": 5,
+   "Learning and Process": 5,
+   "Design Education Philosophy": 5,
+   "AI Credibility and Trust": 1
+  }
+ },
+ "sentiment_counts": {
+  "P1": {
+   "Neutral": 26,
+   "Positive": 27,
+   "Frustrated": 8,
+   "Negative": 5,
+   "Concerned": 3
+  },
+  "P2": {
+   "Neutral": 40,
+   "Positive": 68,
+   "Concerned": 5,
+   "Negative": 3,
+   "Frustrated": 1
+  },
+  "P3": {
+   "Neutral": 72,
+   "Negative": 84,
+   "Positive": 21
+  },
+  "P4": {
+   "Neutral": 13,
+   "Positive": 9,
+   "Negative": 13
+  }
+ },
+ "cluster_counts": {
+  "P1": {
+   "value_articulation": 33,
+   "org_perception": 8,
+   "ai_tools": 22,
+   "ai_threat": 6
+  },
+  "P2": {
+   "value_articulation": 50,
+   "org_perception": 8,
+   "ai_tools": 23,
+   "ai_threat": 28,
+   "future_work": 3,
+   "edu_gap": 5
+  },
+  "P3": {
+   "edu_gap": 91,
+   "ai_tools": 20,
+   "ai_threat": 51,
+   "future_work": 15
+  },
+  "P4": {
+   "ai_tools": 9,
+   "edu_gap": 16,
+   "value_articulation": 5,
+   "future_work": 5
+  }
+ },
+ "bem_counts": {
+  "P1": {
+   "knowledge": 35,
+   "information": 12,
+   "incentives": 12,
+   "resources": 17,
+   "capacity": 3
+  },
+  "P2": {
+   "knowledge": 47,
+   "information": 19,
+   "resources": 21,
+   "capacity": 27,
+   "motives": 20,
+   "incentives": 10
+  },
+  "P3": {
+   "knowledge": 123,
+   "information": 85,
+   "resources": 20,
+   "capacity": 12,
+   "incentives": 54,
+   "motives": 39
+  },
+  "P4": {
+   "resources": 14,
+   "information": 22,
+   "knowledge": 6
+  }
+ },
+ "pershing_counts": {
+  "P1": {
+   "human_social": 37,
+   "management": 14,
+   "physical_technical": 15,
+   "organizational": 3
+  },
+  "P2": {
+   "human_social": 78,
+   "management": 18,
+   "physical_technical": 15,
+   "organizational": 6
+  },
+  "P3": {
+   "human_social": 59,
+   "management": 44,
+   "physical_technical": 20,
+   "organizational": 54
+  },
+  "P4": {
+   "physical_technical": 8,
+   "human_social": 17,
+   "organizational": 10
+  }
+ },
+ "sentiment_by_cluster": {
+  "P1": {
+   "value_articulation": {
+    "Neutral": 17,
+    "Positive": 12,
+    "Frustrated": 3,
+    "Concerned": 1
+   },
+   "org_perception": {
+    "Frustrated": 4,
+    "Positive": 1,
+    "Negative": 2,
+    "Neutral": 1
+   },
+   "ai_tools": {
+    "Neutral": 7,
+    "Positive": 14,
+    "Concerned": 1
+   },
+   "ai_threat": {
+    "Negative": 3,
+    "Neutral": 1,
+    "Frustrated": 1,
+    "Concerned": 1
+   }
+  },
+  "P2": {
+   "value_articulation": {
+    "Neutral": 24,
+    "Positive": 26
+   },
+   "org_perception": {
+    "Positive": 5,
+    "Concerned": 1,
+    "Neutral": 2
+   },
+   "ai_tools": {
+    "Positive": 11,
+    "Neutral": 12
+   },
+   "ai_threat": {
+    "Concerned": 4,
+    "Negative": 3,
+    "Positive": 20,
+    "Frustrated": 1
+   },
+   "future_work": {
+    "Positive": 3
+   },
+   "edu_gap": {
+    "Neutral": 2,
+    "Positive": 3
+   }
+  },
+  "P3": {
+   "edu_gap": {
+    "Neutral": 45,
+    "Negative": 30,
+    "Positive": 16
+   },
+   "ai_tools": {
+    "Negative": 8,
+    "Neutral": 11,
+    "Positive": 1
+   },
+   "ai_threat": {
+    "Negative": 40,
+    "Positive": 4,
+    "Neutral": 7
+   },
+   "future_work": {
+    "Neutral": 9,
+    "Negative": 6
+   }
+  },
+  "P4": {
+   "ai_tools": {
+    "Neutral": 3,
+    "Positive": 4,
+    "Negative": 2
+   },
+   "edu_gap": {
+    "Negative": 8,
+    "Neutral": 4,
+    "Positive": 4
+   },
+   "value_articulation": {
+    "Neutral": 4,
+    "Negative": 1
+   },
+   "future_work": {
+    "Neutral": 2,
+    "Negative": 2,
+    "Positive": 1
+   }
+  }
+ },
+ "group_for": {
+  "P1": "practitioner",
+  "P2": "practitioner",
+  "P3": "student",
+  "P4": "student"
+ }
+}
