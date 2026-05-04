@@ -68,11 +68,26 @@ strong { font-weight: 600; }
   font-size: 0.85rem;
   color: var(--ink-soft);
   text-decoration: none;
-  border-bottom: 2px solid transparent;
+  position: relative;
   padding-bottom: 2px;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.site-header nav a:hover { color: var(--accent); border-color: var(--accent); }
+.site-header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site-header nav a:hover {
+  color: var(--accent);
+}
+.site-header nav a:hover::after {
+  width: 100%;
+}
 
 /* ===== Hero ===== */
 .hero { padding: 80px 0 60px; border-bottom: 1px solid var(--rule); }
@@ -91,6 +106,13 @@ strong { font-weight: 600; }
   padding: 18px 18px 16px;
   position: relative;
   overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.p-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.06),
+              0 2px 8px rgba(26, 26, 26, 0.04);
 }
 .p-card::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
@@ -179,7 +201,7 @@ strong { font-weight: 600; }
   position: absolute;
   bottom: calc(100% + 6px);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-4px);
   background: rgba(26,26,26,0.93);
   color: #fff;
   font-family: 'IBM Plex Sans', sans-serif;
@@ -192,11 +214,15 @@ strong { font-weight: 600; }
   width: max-content;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.15s;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 10;
   line-height: 1.4;
 }
-.hm-cell:hover::after { opacity: 1; }
+.hm-cell:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 
 /* Prevent tooltip from going off right edge */
 .hm-cell:nth-child(n+5)::after {
@@ -270,6 +296,13 @@ section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
   border-radius: 4px;
   padding: 18px 20px 16px;
   position: relative;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.quote-card:hover {
+  transform: translateY(-1px) rotate(0.3deg);
+  box-shadow: 0 6px 20px rgba(26, 26, 26, 0.05),
+              0 2px 6px rgba(26, 26, 26, 0.03);
 }
 .quote-card .q-meta {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -398,6 +431,7 @@ section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
 .hm-cell {
   background: #f5f3ec;
   border-radius: 3px;
+  border: 1px solid transparent;
   position: relative;
   display: flex;
   align-items: center;
@@ -405,9 +439,16 @@ section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
   min-height: 56px;
   font-weight: 600;
   color: var(--ink);
-  transition: transform 0.15s;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: help;
 }
-.hm-cell:hover { transform: scale(1.02); }
+.hm-cell:hover {
+  transform: scale(1.04);
+  background: #ebe8dd;
+  border-color: rgba(139, 42, 26, 0.3);
+}
 .hm-cell .hm-pct { font-size: 1.1rem; }
 .hm-cell .hm-n { font-size: 0.7rem; color: var(--ink-soft); position: absolute; bottom: 4px; right: 6px; }
 .hm-row-bem-env { background: linear-gradient(to right, transparent, transparent); }
@@ -629,6 +670,15 @@ section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
   border: 1px solid var(--rule);
   border-radius: 6px;
   padding: 20px 22px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.primer-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.08),
+              0 4px 12px rgba(26, 26, 26, 0.05);
+  border-color: rgba(139, 42, 26, 0.2);
 }
 .primer-author {
   font-family: 'IBM Plex Sans', sans-serif;
