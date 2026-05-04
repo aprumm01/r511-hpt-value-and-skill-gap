@@ -90,12 +90,12 @@ async function boot() {
   }
 
   fillHero();
-  buildEduSection();
-  buildAiSection();
+  // buildEduSection(); // Section removed
+  // buildAiSection(); // Section removed
   buildHeatmap();
-  buildSurveyCharts();
-  initScrolly();
-  initDashboard();
+  // buildSurveyCharts(); // Section removed
+  // initScrolly(); // Scrollytelling removed
+  // initDashboard(); // Dashboard removed
 }
 
 // =====================================================================
