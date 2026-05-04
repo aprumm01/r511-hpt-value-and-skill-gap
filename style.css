@@ -185,15 +185,30 @@ strong { font-weight: 600; }
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.78rem;
   font-weight: 400;
-  padding: 6px 10px;
+  padding: 8px 12px;
   border-radius: 4px;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 320px;
+  width: max-content;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s;
   z-index: 10;
+  line-height: 1.4;
 }
 .hm-cell:hover::after { opacity: 1; }
+
+/* Prevent tooltip from going off right edge */
+.hm-cell:nth-child(n+5)::after {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+/* Prevent tooltip from going off left edge */
+.hm-cell:nth-child(2)::after {
+  left: 0;
+  transform: none;
+}
 
 /* ===== Section header ===== */
 section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
