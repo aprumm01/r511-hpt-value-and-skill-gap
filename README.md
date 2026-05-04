@@ -124,3 +124,4 @@ Claude Code (Anthropic, claude-sonnet-4-6) assisted with CMDA coding, data synth
 
 Project content (text, analysis) © 2026 Adam Prumm. Code released under MIT for re-use in similar academic visualizations.
 
+
