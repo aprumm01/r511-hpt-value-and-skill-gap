@@ -398,6 +398,81 @@ section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
 .hm-row-bem-env { background: linear-gradient(to right, transparent, transparent); }
 .hm-divider { grid-column: 1 / -1; border-top: 2px dashed var(--rule); margin: 4px 0; }
 
+/* ===== Key Findings ===== */
+.findings-section { background: #fff; }
+.bem-findings-grid {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
+}
+.bem-finding-row {
+  padding: 16px 0;
+  border-top: 2px solid var(--rule);
+}
+.bem-row-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+}
+.bem-row-label.environmental { color: var(--accent); }
+.bem-row-label.individual { color: var(--accent-warm); }
+.bem-row-desc {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+  font-style: italic;
+}
+.bem-finding-cell {
+  border-left: 3px solid var(--rule);
+  padding-left: 18px;
+}
+.bem-finding-cell h4 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: var(--ink);
+}
+.bem-finding-cell .cell-desc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+.finding-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+.finding-card {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 14px 16px;
+  position: relative;
+}
+.finding-card.practitioner { border-left: 3px solid var(--accent); }
+.finding-card.student { border-left: 3px solid var(--accent-warm); }
+.finding-p {
+  display: inline-block;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.finding-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--ink);
+}
+
 /* ===== Dashboard ===== */
 .dashboard { background: #fff; }
 .filters {
