@@ -351,7 +351,46 @@ function buildHeatmap() {
       // soft fill from off-paper to accent
       const bg = `rgba(${isPract ? '42,94,138' : '192,138,44'}, ${0.08 + intensity * 0.55})`;
       const display = (pct * 100).toFixed(0) + '%';
-      html += `<div class="hm-cell" style="background:${bg}" data-tooltip="${BEM_LABELS[c]}, ${p}: ${n} of ${DATA.mus.filter(m=>m.p===p).length} MUs (${display})">
+
+      // Interpretive tooltips that explain what the percentage means
+      const tooltips = {
+        'P1': {
+          'information': 'P1 talks about unclear expectations and how management reduces UX to "make it pretty"',
+          'resources': 'P1 mentions time and research being treated as optional under shipping pressure',
+          'incentives': 'P1 sees AI as a cyclical threat to designer headcount and job security',
+          'knowledge': 'P1 articulates UX core value clearly but struggles to communicate it to stakeholders',
+          'capacity': 'P1 has years of platform experience; capacity is not the constraint',
+          'motives': 'P1\'s motivation is shaped by anxiety about AI replacing UX roles'
+        },
+        'P2': {
+          'information': 'P2 sees the AI replacement narrative as overblown hype from marketing cycles',
+          'resources': 'P2 has AI tools and uses them deliberately, capping at 30% of workday',
+          'incentives': 'P2 questions whether organizations will recognize and reward consulting value',
+          'knowledge': 'P2 holds a calibrated mental model of what AI actually does and doesn\'t do',
+          'capacity': 'P2 demonstrates selective AI integration without compromising judgment',
+          'motives': 'P2 approaches AI with pragmatic detachment, confident design value is defensible'
+        },
+        'P3': {
+          'information': 'P3 experienced confusing faculty AI policies that made experimentation feel dangerous',
+          'resources': 'P3 felt discouraged from using AI, creating a gap between school and workplace expectations',
+          'incentives': 'P3 sees academic rewards (methodology, rigor) misaligned with what workplaces value',
+          'knowledge': 'P3 recognizes coursework emphasis doesn\'t match what professional colleagues care about',
+          'capacity': 'P3\'s capacity is constrained by policy restrictions that prevented hands-on experimentation',
+          'motives': 'P3 feels "dumb and lazy" using AI, with guilt tangled into the experience'
+        },
+        'P4': {
+          'information': 'P4 notices programs reward completing assignments over recruiting rigorous participants',
+          'resources': 'P4 finds AI tools frustrating—every output follows the same generic pattern',
+          'incentives': 'P4 sees industry prioritizing shipping fast over deep user understanding upfront',
+          'knowledge': 'P4 can diagnose AI limitations (repetitive outputs) but not work around them',
+          'capacity': 'P4 can use AI tools but questions their value given current generic results',
+          'motives': 'P4 is willing to use AI instrumentally but remains skeptical of its actual value'
+        }
+      };
+
+      const tooltip = tooltips[p][c] + ` (${display}, ${n}/${DATA.mus.filter(m=>m.p===p).length} MUs)`;
+
+      html += `<div class="hm-cell" style="background:${bg}" data-tooltip="${tooltip}">
                  <span class="hm-pct">${display}</span>
                  <span class="hm-n">n=${n}</span>
                </div>`;
